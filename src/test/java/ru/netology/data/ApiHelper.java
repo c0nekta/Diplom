@@ -15,7 +15,7 @@ public class ApiHelper {
     private static final Gson gson = new Gson();
     private static DataHelper.CardInfo cardInfo;
     private static final RequestSpecification requestSpec = new RequestSpecBuilder()
-            .setBaseUri("http://185.119.57.64")
+            .setBaseUri("http://localhost")
             .setPort(9999)
             .setAccept(ContentType.JSON)
             .setContentType(ContentType.JSON)

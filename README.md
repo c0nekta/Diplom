@@ -30,3 +30,12 @@ ___
 11. Для остановки работы контейнеров выполнить команду  
 `docker-compose down`
 ___
+
+## Документация проекта:
+[1.Задание к диплому](https://github.com/c0nekta/Diplom/blob/main/Documents/TaskDescription.md)
+
+[2.План автоматизации](https://github.com/c0nekta/Diplom/blob/main/Documents/Plan.md)
+
+[3.Отчет по итогам тестирования](https://github.com/c0nekta/Diplom/blob/main/Documents/Report.md)
+
+[4.Отчет по итогам автоматизации](https://github.com/c0nekta/Diplom/blob/main/Documents/Summary.md)
