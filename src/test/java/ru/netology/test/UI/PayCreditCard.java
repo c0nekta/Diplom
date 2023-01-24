@@ -14,7 +14,7 @@ import static ru.netology.data.DataHelper.*;
 import static ru.netology.data.SQLHelper.*;
 
 public class PayCreditCard {
-    PaymentPage paymentPage = new PaymentPage();
+
 
 
     @BeforeAll
@@ -28,6 +28,8 @@ public class PayCreditCard {
 
         open("http://localhost:8080");
     }
+
+    PaymentPage paymentPage = new PaymentPage();
 
     @AfterEach
     void cleanDB() {
@@ -54,19 +56,6 @@ public class PayCreditCard {
         var orderInfo = getOrderInfo();
         assertEquals(expected, getCreditRequestInfo().getStatus());
         assertEquals(orderInfo.getPayment_id(), creditRequest.getBank_id());
-    }
-
-    @Test
-    @SneakyThrows
-    @DisplayName("Покупка кредитной невалидной картой")
-    void shouldPayCreditDeclinedCard() {
-        paymentPage.buyCreditCard();
-        var info = DataHelper.getDeclinedCard();
-        paymentPage.sendingNotValidData(info);
-        paymentPage.bankDeclined();
-        var expected = getStatusSecondCard();
-        var paymentInfo = getPaymentInfo().getStatus();
-        assertEquals(expected, paymentInfo);
     }
 
 

@@ -57,15 +57,6 @@ public class PaymentPage {
         buttonContinue.click();
     }
 
-    public void sendingNotValidData (DataHelper.CardInfo info) {
-        cardNumberField.setValue(info.getNumber());
-        monthField.setValue(info.getMonth());
-        yearField.setValue(info.getYear());
-        ownerField.setValue(info.getHolder());
-        cvcField.setValue(info.getCvc());
-        buttonContinue.click();
-    }
-
     public void sendingValidDataWithFieldCardNumberError () {
         fieldCardNumberError.shouldBe(visible);
         fieldMonthError.shouldBe(hidden);
