@@ -1,5 +1,7 @@
 package ru.netology.page;
 
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import ru.netology.data.DataHelper;
 
@@ -8,30 +10,28 @@ import java.time.Duration;
 import static com.codeborne.selenide.Condition.hidden;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.$x;
-import static ru.netology.page.MainPage.*;
 
-public class PaymentPage {
-
+public class CreditPage {
 
     private final SelenideElement cardNumberField = $x("//input[@placeholder='0000 0000 0000 0000']");
     private final SelenideElement monthField = $x("//input[@placeholder='08']");
     private final SelenideElement yearField = $x("//input[@placeholder='22']");
     private final SelenideElement ownerField = $(byText("Владелец")).parent().$("input");
     private final SelenideElement cvcField = $x("//input[@placeholder='999']");
-    private final SelenideElement buttonContinue = $x("//span[text()='Продолжить']//ancestor::button");
+    private SelenideElement buttonContinue = $x("//span[text()='Продолжить']//ancestor::button");
 
 
     //    ошибки полей
-    private final SelenideElement fieldCardNumberError = $x("//*[text()='Номер карты']/..//*[@class='input__sub']");
-    private final SelenideElement fieldMonthError = $x("//*[text()='Месяц']/..//*[@class='input__sub']");
-    private final SelenideElement fieldYearError = $x("//*[text()='Год']/..//*[@class='input__sub']");
-    private final SelenideElement fieldOwnerError = $x("//*[text()='Владелец']/..//*[@class='input__sub']");
-    private final SelenideElement fieldCvcError = $x("//*[text()='CVC/CVV']/..//*[@class='input__sub']");
+    private SelenideElement fieldCardNumberError = $x("//*[text()='Номер карты']/..//*[@class='input__sub']");
+    private SelenideElement fieldMonthError = $x("//*[text()='Месяц']/..//*[@class='input__sub']");
+    private SelenideElement fieldYearError = $x("//*[text()='Год']/..//*[@class='input__sub']");
+    private SelenideElement fieldOwnerError = $x("//*[text()='Владелец']/..//*[@class='input__sub']");
+    private SelenideElement fieldCvcError = $x("//*[text()='CVC/CVV']/..//*[@class='input__sub']");
 
-    private final SelenideElement notificationApproved = $x("//div[contains(@class, 'notification_status_ok')]");
-    private final SelenideElement notificationError = $x("//div[contains(@class, 'notification_status_error')]");
+    private SelenideElement notificationApproved = $x("//div[contains(@class, 'notification_status_ok')]");
+    private SelenideElement notificationError = $x("//div[contains(@class, 'notification_status_error')]");
 
     //    продолжить
     public void pressButtonForContinue() {
@@ -117,18 +117,3 @@ public class PaymentPage {
         notificationApproved.shouldBe(visible, Duration.ofSeconds(15));
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
